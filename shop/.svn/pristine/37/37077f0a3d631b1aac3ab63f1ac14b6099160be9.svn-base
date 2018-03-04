@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wqz19970129
+ * Date: 2018/3/1
+ * Time: 10:28
+ */
+class UsersController extends Controller
+{
+     public function index(){
+         //接收数据
+         $search='';
+         if(!empty($_REQUEST['realname'])){
+             $search.=" realname like '%{$_REQUEST['realname']}%'";
+         }
+         unset($_REQUEST['page']);
+         $page=$_GET['page']??1;
+         //处理数据
+         $url_name=http_build_query($_REQUEST);
+         $user=new UsersModel();
+         $rows=$user->getAll($search,$page);
+         $rows['url_name']=$url_name;
+         //var_dump($rows);die;
+         $this->assign($rows);
+         //显示页面
+         $this->display('index');
+     }
+     public function delete(){
+         //接收数据
+         $id=$_GET['user_id'];
+         //处理数据
+         $user=new UsersModel();
+         $user->delete($id);
+         //显示页面
+         $this->red('index.php?p=Admin&c=Users&a=index');
+     }
+     public function edit(){
+      if($_SERVER['REQUEST_METHOD']=='POST'){
+          $data=$_POST;
+          //上传图片
+          $file=$_FILES['logo'];
+          if($file['error'] !=4){
+              $upload=new UploadTool();
+              $rs=$upload->upload($file,"Users/");
+              if($rs===false){
+                  $this->red("index.php?p=Admin&c=Users&a=edit&user_id={$data['user_id']}");
+              }
+              //制作缩略图
+              $data['photo']=$rs;
+              $image=new ImageTool();
+              $r=$image->thmub($rs,100,100);
+              if($r===false){
+                  $this->red("index.php?p=Admin&c=Users&a=edit&user_id={$data['user_id']}");
+              }
+              $data['thumb']=$r;
+          }
+          $user=new UsersModel();
+          $user->editSave($data);
+          //显示页面
+          $this->red("index.php?p=Admin&c=Users&a=index");
+
+      }else{
+          //接收数据
+          $id=$_GET['user_id'];
+          //处理数据
+          $user=new UsersModel();
+          $row=$user->getOne($id);
+          //显示页面
+          $this->assign($row);
+          $this->display('edit');
+      }
+}
+    //充值
+     public function add(){
+         if($_SERVER['REQUEST_METHOD']=='POST'){
+             //接收数据
+             $data=$_POST;
+             $user=new UsersModel();
+             $mon=$user->money($data['user_id']);
+             //处理数据
+             $add_save=new UsersModel();
+             $rs=$add_save->user_save($data,$mon);
+             //显示页面
+             if($rs===false){
+                 self::red('index.php?p=Admin&c=Users&a=add',$add_save->getError(),3);
+             }
+             $hist=new UsersModel();
+             $money=$hist->hist($data['user_id']);
+             $history=new UsersModel();
+             $history->history($data,$money);
+             self::red('index.php?p=Admin&c=Users&a=index');
+         }else{
+             //接收数据
+             //处理数据
+             $add=new UsersModel();
+             $rows=$add->user();
+             //分配数据
+             $this->assign('rows',$rows);
+             //显示页面
+             $this->display('add');
+         }
+     }
+}

@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/2/27 0027
+ * Time: 23:31
+ */
+class MemberController extends Controller
+{
+   //显示员工表
+    public function index(){
+        //接收数据
+        //处理数据
+        $member=new MemberModel();
+        $rows=$member->getAll();
+        //分配数据
+        $this->assign('rows',$rows);
+        //显示页面
+        $this->display('index');
+    }
+    //添加员工表
+}

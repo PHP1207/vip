@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php require './Application/View/Home/Number/herder.html'?>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"></a>
+        </div>
+		  <ul class="nav navbar-nav navbar-right">
+			  <li><a href="index.php?p=Home&c=Login&a=logout">退出</a></li>
+			  <li><a href="index.php?p=Home&c=Article&a=people">前台首页</a></li>
+			  <li><a href="index.php?p=Home&c=Users&a=index">注册会员</a></li>
+			  <li><a href="index.php?p=Home&c=Inte&a=index">积分表</a></li>
+		  </ul><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Welcome Section +++++ -->
+	<?php require './Application/View/Home/Inte/red.html'?><!-- /ww -->
+	<!-- +++++ Projects Section +++++ -->
+	<div class="content-page">
+		<!-- Start content -->
+		<div class="content">
+			<div class="card-box">
+				<!-- Row start -->
+				<div class="am-g">
+					<div class="am-u-sm-12 am-u-md-6">
+						<div class="am-btn-toolbar">
+
+						</div>
+					</div>
+
+					<form action="index.php?p=Home&c=Inte&a=index" method="post">
+						<table>
+							<tr>
+								<td width="150px"><input type="number" name="number" placeholder="积分" class="am-form-field"></td>
+								<td>
+								<span class="am-input-group-btn">
+				            <input class="am-btn am-btn-default" type="submit" value="搜索">
+				          </span>
+								</td>
+
+							</tr>
+						</table>
+					</form>
+				</div>
+				<!-- Row end -->
+				<table width="1000px" style="text-align: center">
+					<thead>
+					<tr>
+						<td class="table-check"><input type="checkbox" /></td>
+						<td class="table-id">ID</td>
+						<td class="table-title">积分</td>
+						<td class="table-type">用户</td>
+					</tr>
+					</thead>
+					<tbody>
+					<?php foreach($list as $row):?>
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td><?=$row['id']?></td>
+						<td><?=$row['number']?></td>
+						<td><?=$row['username']?></td>
+					</tr>
+					<?php endforeach;?>
+					</tbody>
+				</table>
+				<!-- Row start -->
+				<table id="page-table" cellspacing="0">
+					<tbody>
+					<tr>
+						<td align="right" nowrap="true" style="background-color: rgb(255, 255, 255);">
+							<!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+							<div id="turn-page">
+								总计  <span id="totalRecords"><?=$count?></span>个记录分为 <span id="totalPages"><?=$totalPage?></span>页当前第 <span id="pageCurrent"><?=$page?></span>
+								页，每页 <input type="text" size="3" id="pageSize" value="<?=$pageSize?>" onkeypress="return listTable.changePageSize(event)">
+								<span id="page-link">
+                            <a href="index.php?<?=$url_name?>&page=1">第一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=($page-1)<1?1:($page-1)?>">上一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=($page+1)>$totalPage?$totalPage:($page+1)?>">下一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=$totalPage?>">最末页</a>
+                            <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+                            <option value="1">1</option><option value="2">2</option>          </select>
+                        </span>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<!-- Row end -->
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</div><!-- /container -->
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>My Bunker</h4>
+					<p>
+						Some Address 987,<br/>
+						+34 9054 5455, <br/>
+						Madrid, Spain.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>My Links</h4>
+					<p>
+						<a href="#">Dribbble</a><br/>
+						<a href="#">Twitter</a><br/>
+						<a href="#">Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>About Stanley</h4>
+				</div><!-- /col-lg-4 -->
+				<p>
+					<a href="#">Drjdsk</a><br/>
+					<a href="#">Yjdslar</a><br/>
+					<a href="#">book</a>
+				</p>
+			</div>
+		
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Public/Home/Inte/js/bootstrap.min.js"></script>
+  </body>
+</html>

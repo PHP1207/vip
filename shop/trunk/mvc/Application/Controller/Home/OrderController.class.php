@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wqz19970129
+ * Date: 2018/2/28
+ * Time: 20:43
+ */
+class OrderController extends Controller
+{
+   public function index(){
+       @session_start();
+       $username=$_SESSION['users']['username'];
+       //var_dump($username);die;
+       $this->assign('username',$username);
+       $thumb=$_SESSION['users']['thumb'];
+       //var_dump($username);die;
+       $this->assign('thumb',$thumb);
+//根据id来查询他的名字
+       $id=$_GET['user_id'];
+       $article_id=$_GET['article_id'];
+       //var_dump($article_id);die;
+       $this->assign('article_id',$article_id);
+       $user=new UsersModel();
+       $row=$user->getOne($id);
+       $this->assign($row);
+       //查找美发师
+       $order=new OrderModel();
+       $member=$order->getAll();
+       //获取姓名
+       //$a=$order->getColumn();
+
+       $this->assign('member',$member);
+       $rows['username']=
+       //var_dump($member);die;
+       $display=new ArticleModel();
+       $rows=$display->getAll1();
+       //显示页面
+       $this->assign('rows',$rows);
+       //显示页面
+       $this->display('order');
+   }
+   //前台添加预约
+   public function add(){
+       //接受数据
+       $data=$_POST;
+//       var_dump($data);die;
+       $id=$data['id'];
+       //var_dump($data);die;
+       //处理数据
+       $add=new OrderModel();
+       $add->add($data);
+       //显示页面
+       $this->red("index.php?p=Home&c=Article&a=content2&article_id={$id}");
+   }
+   //取消预约
+   public function delete(){
+        $id=$_GET['user_id'];
+        $user=new UsersModel();
+        $realname=$user->getcolumn($id);
+        $order=new OrderModel();
+        $order->delete($realname);
+       $this->red("index.php?p=Home&c=Article&a=people");
+   }
+   //在前台获取我的预约结果
+    public function getAll(){
+        //接受数据
+        //$realname=$_GET['realname'];
+        //var_dump($realname);die;
+        //var_dump($data);die;
+        //处理数据
+        @session_start();
+        $username=$_SESSION['users']['username'];
+        //var_dump($username);die;
+        $this->assign('username',$username);
+        $realname=$_SESSION['users']['realname'];
+        //var_dump($realname);die;
+        $this->assign('realname',$realname);
+
+        $thumb=$_SESSION['users']['thumb'];
+        //var_dump($username);die;
+       /* $real=$_GET['realname'];
+        var_dump($real);die;*/
+        $this->assign('thumb',$thumb);
+        $add=new OrderModel();
+        $rows=$add->getAll2($realname);
+        //var_dump($rows);die;
+        $this->assign('rows',$rows);
+        //显示页面
+        $this->display('order1');
+    }
+}

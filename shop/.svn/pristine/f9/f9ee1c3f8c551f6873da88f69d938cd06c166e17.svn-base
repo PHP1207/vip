@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Amaze UI Examples</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="stylesheet" href="./Public/Home/login/css/amazeui.min.css">
+  <link rel="stylesheet" href="./Public/Home/login/css/app.css">
+</head>
+<body>
+<div class="am-g myapp-login">
+	<div class="myapp-login-logo-block">
+		<div class="myapp-login-logo">
+			<i class="am-icon-jsfiddle"></i>
+		</div>
+		<div class="myapp-login-logo-text">
+			<div class="myapp-login-logo-text">
+				Js<span>Fiddle</span>
+				<div class="info">Find the best places in town.</div>
+			</div>
+		</div>
+
+		<div class="login-font">
+			<i>Log In </i> or <span> Sign Up</span>
+		</div>
+		<div class="am-u-sm-10 login-am-center">
+			<form class="am-form" method="post" action="index.php?p=Home&c=Login&a=login_check">
+				<fieldset>
+					<div class="am-form-group">
+						用户名
+						<input type="text" name="username">
+					</div>
+                          密码
+					<div class="am-form-group">
+						<input type="password" name="password" >
+					</div>
+					<div>验证码<input type="text" name="captcha" class="capital" /></div>
+
+					<div colspan="2"  class="capital">
+
+						&emsp;&emsp;&emsp;&emsp;<img src="index.php?p=Home&c=Captcha&a=index" onclick="this.src='index.php?c=Captcha&act=create&'+Math.random()" height="60px" width="200px" style="padding-top: 20px ;margin: auto"
+					>
+					</div>
+					<div align="center">
+						<input type="checkbox" value="1" name="remember" id="remember" />
+						<label for="remember">请保存我这次的登录信息。</label>
+					</div>
+					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="./Public/Home/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="./Public/Home/login/js/amazeui.min.js"></script>
+<script src="./Public/Home/login/js/app.js"></script>
+</body>
+</html>

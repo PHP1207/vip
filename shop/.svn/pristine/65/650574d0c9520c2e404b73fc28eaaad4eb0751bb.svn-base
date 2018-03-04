@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>用户名:<?= $_SESSION['user']['username']?></li>
+    <li>邮箱:<?=$_SESSION['user']['email']?></li>
+    <li>头像:</li>
+    <li><img src="<?=$_SESSION['user']['logo']?>" ></li>
+    <li><a href="index.php?p=Admin&c=Admin&a=edit">修改个人资料</a></li>
+    <li><a href="index.php?p=Admin&c=Login&a=logut">退出</a></li>
+</ul>
+</body>
+</html>

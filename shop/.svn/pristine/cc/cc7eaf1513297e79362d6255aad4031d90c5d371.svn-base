@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>STANLEY - Free Bootstrap Theme </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./Public/Home/Home/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="./Public/Home/Home/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="./Public/Home/Home/js/hover.zoom.js"></script>
+    <script src="./Public/Home/Home/js/hover.zoom.conf.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+			  <li><a href="index.php?p=Home&c=Article&a=index">最新活动展示</a></li>
+			  <li><a href="index.php?p=Home&c=Users&a=index">注册会员</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	
+	
+	<!-- +++++ Contact Section +++++ -->
+	
+	<div class="container pt">
+		<div class="row mt">
+			<div class="col-lg-6 col-lg-offset-3 centered">
+				<h3>全国连锁美发沙龙</h3>
+				<hr>
+				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+			</div>
+		</div>
+		<div class="row mt">	
+			<div class="col-lg-8 col-lg-offset-2">
+				<form role="form" method="post" action="index.php?p=Home&c=Users&a=reg" enctype="multipart/form-data">
+				  <div class="form-group">
+				    用户名:<input type="text" class="form-control"   name="username">
+				    <br>
+				  </div>
+					<div class="form-group">
+						真实姓名:<input type="text" class="form-control"  name="realname">
+						<br>
+					</div>
+					<div class="form-group">
+						年龄:<input type="text" class="form-control"   name="sex">
+						<br>
+					</div>
+				  <div class="form-group">
+				    密码:<input type="password" class="form-control"   name="password">
+				    <br>
+				  </div>
+					<div class="form-group">
+						电话:<input type="text" class="form-control"   name="telephone">
+						<br>
+					</div>
+					<div class="form-group">
+						头像<input type="file"   name="logo">
+						<br>
+					</div>
+				  简介:<textarea class="form-control" rows="6" name="remark"></textarea>
+				    <br>
+				  <button type="submit" class="btn btn-success" style="margin-left: 300px">提交</button>
+				</form>    			
+			</div>
+		</div><!-- /row -->
+	</div><!-- /container -->
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>My Bunker</h4>
+					<p>
+						Some Address 987,<br/>
+						+34 9054 5455, <br/>
+						Madrid, Spain.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>My Links</h4>
+					<p>
+						<a href="#">Dribbble</a><br/>
+						<a href="#">Twitter</a><br/>
+						<a href="#">Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>About Stanley</h4>
+					<p>This cute theme was created to showcase your work in a simple way. Use it wisely.</p>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Public/Home/Home/js/bootstrap.min.js"></script>
+  </body>
+</html>

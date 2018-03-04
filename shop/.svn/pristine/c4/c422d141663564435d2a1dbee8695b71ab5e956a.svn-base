@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>后台模板</title>
+		<link rel="stylesheet" href="./Public/Admin/Member/css/amazeui.css" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./Public/Admin/Member/css/core.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/menu.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/index.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/admin.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/page/typography.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/page/form.css" />
+	</head>
+	<body>
+		<!-- Begin page -->
+		<header class="am-topbar am-topbar-fixed-top">		
+			<div class="am-topbar-left am-hide-sm-only">
+                <a href="index.html" class="logo"><span>Admin<span>to</span></span><i class="zmdi zmdi-layers"></i></a>
+            </div>
+	
+			<div class="contain">
+				<ul class="am-nav am-navbar-nav am-navbar-left">
+
+					<li><h4 class="page-title">基本表格</h4></li>
+				</ul>
+				
+				<ul class="am-nav am-navbar-nav am-navbar-right">
+					<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
+					<li class="hidden-xs am-hide-sm-only">
+                        <form role="search" class="app-search">
+                            <input type="text" placeholder="Search..." class="form-control">
+                            <a href=""><img src="./Public/Admin/Member/img/search.png"></a>
+                        </form>
+                    </li>
+				</ul>
+			</div>
+		</header>
+		<!-- end page -->
+		
+		
+		<div class="admin">
+			<!--<div class="am-g">-->
+		<!-- ========== Left Sidebar Start ========== -->
+		<!--<div class="left side-menu am-hide-sm-only am-u-md-1 am-padding-0">
+			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 548px;">
+				<div class="sidebar-inner slimscrollleft" style="overflow: hidden; width: auto; height: 548px;">-->
+                  <!-- sidebar start -->
+				  <div class="admin-sidebar am-offcanvas  am-padding-0" id="admin-offcanvas">
+				    <div class="am-offcanvas-bar admin-offcanvas-bar">
+				    	<!-- User -->
+						<div class="user-box am-hide-sm-only">
+	                        <div class="user-img">
+	                            <img src="./Public/Admin/Member/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+	                            <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
+	                        </div>
+	                        <h5><a href="#">Mat Helme</a> </h5>
+	                        <ul class="list-inline">
+	                            <li>
+	                                <a href="#">
+	                                    <i class="fa fa-cog" aria-hidden="true"></i>
+	                                </a>
+	                            </li>
+	
+	                            <li>
+	                                <a href="#" class="text-custom">
+	                                    <i class="fa fa-cog" aria-hidden="true"></i>
+	                                </a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                    <!-- End User -->
+	            
+						 <ul class="am-list admin-sidebar-list">
+						    <li><a href="index.php?p=Admin&c=Member&a=index"><span class="am-icon-home"></span> 员工管理表</a></li>
+							 <li><a href="index.php?p=Admin&c=Group&a=group"><span class="am-icon-home"></span> 部门表</a></li>
+							 <li><a href="index.php?p=Admin&c=Article&a=index"><span class="am-icon-home"></span> 活动表</a></li>
+						  </ul>
+				</div>
+				  </div>
+				  <!-- sidebar end -->
+    
+				<!--</div>
+			</div>
+		</div>-->
+		<!-- ========== Left Sidebar end ========== -->
+		
+		
+		
+	<!--	<div class="am-g">-->
+		<!-- ============================================================== -->
+		<!-- Start right Content here -->
+		<div class="content-page">
+			<!-- Start content -->
+			<div class="content">
+				<div class="card-box">
+					<!-- Row start -->
+					<div class="am-g">
+						<div class="am-u-sm-12 am-u-md-6">
+				          <div class="am-btn-toolbar">
+
+				          </div>
+				        </div>
+
+							<form action="index.php?p=Admin&c=Article&a=index" method="post">
+							  <table>
+								  <tr>
+									  <td width="150px"><input type="text" name="title" placeholder="标题" class="am-form-field"></td>
+							<td>
+								<span class="am-input-group-btn">
+				            <input class="am-btn am-btn-default" type="submit" value="搜索">
+				          </span>
+							</td>
+
+								  </tr>
+							  </table>
+							</form>
+				      </div>
+					  <!-- Row end -->
+					  
+					  <!-- Row start -->
+					  	<div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main" style="text-align: center">
+              <thead>
+              <tr>
+                <th class="table-check"><input type="checkbox" /></th>
+                  <th class="table-id">ID</th>
+                  <th class="table-title">标题</th>
+                  <th class="table-type">内容详情</th>
+                  <th class="table-author am-hide-sm-only">开始时间</th>
+                  <th class="table-author am-hide-sm-only">结束时间</th>
+                  <th class="table-set">操作</th>
+              </tr>
+              </thead>
+              <tbody>
+              <?php foreach($list as $row):?>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td><?=$row['article_id']?></td>
+                <td><?=$row['title']?></td>
+                <td><?=$row['content']?></td>
+                <td class="am-hide-sm-only"><?=$row['start']?></td>
+                <td class="am-hide-sm-only"><?=$row['end']?></td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <a href="index.php?p=Admin&c=Article&a=edit&article_id=<?=$row['article_id']?>" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</a>
+                      <a href="index.php?p=Admin&c=Article&a=delete&article_id=<?=$row['article_id']?>" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <?php endforeach;?>
+			  <tr>
+				  <td colspan="12">
+					  <a href="index.php?p=Admin&c=Article&a=add">添加</a>
+				  </td>
+			  </tr>
+              </tbody>
+            </table>
+            <div class="am-cf">
+              共 <?=$count?>条记录
+              <div class="am-fr">
+                <ul class="am-pagination">
+                  <li class="am-disabled"><a href="#">«</a></li>
+                    <li><?=$totalPage?></li>页当前第 <li><?=$page?></li>
+                    页，每页 <li><?=$pageSize?></li>
+
+                            <li><a href="index.php?<?=$url_name?>&page=1">第一页</a></li>
+                            <li><a href="index.php?<?=$url_name?>&page=<?=($page-1)<1?1:($page-1)?>">上一页</a></li>
+                            <li><a href="index.php?<?=$url_name?>&page=<?=($page+1)>$totalPage?$totalPage:($page+1)?>">下一页</a></li>
+                            <li><a href="index.php?<?=$url_name?>&page=<?=$totalPage?>">最末页</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr />
+            <p>注：.....</p>
+          </form>
+        </div>
+
+      </div>
+					  <!-- Row end -->
+					  
+					</div>
+				
+				
+				
+				
+				</div>
+			
+
+			</div>
+		</div>
+		<!-- end right Content here -->
+		<!--</div>-->
+		</div>
+		</div>
+		
+		<!-- navbar -->
+		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
+		
+		<script type="text/javascript" src="./Public/Admin/Member/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="./Public/Admin/Member/js/amazeui.min.js"></script>
+		<script type="text/javascript" src="./Public/Admin/Member/js/app.js" ></script>
+		<script type="text/javascript" src="./Public/Admin/Member/js/blockUI.js" ></script>
+	</body>
+	
+</html>

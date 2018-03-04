@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wqz19970129
+ * Date: 2018/3/1
+ * Time: 21:48
+ */
+class ListController extends  Controller
+{
+ public function index(){
+     //接收数据
+     $list=new ListModel();
+     $rows=$list->getAll();
+     //list($a,$b,$c)=$rows;
+     //$a[1]=$a;
+     $this->assign('rows',$rows);
+     $i=0;
+     $this->assign('i',$i);
+     //var_dump($a);die;
+     //处理数据
+     //显示页面
+     $this->display('index');
+ }
+}

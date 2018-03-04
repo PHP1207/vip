@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1px" cellpadding="0" cellspacing="0" style="text-align: center">
+    <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>邮箱</th>
+        <th>添加时间</th>
+        <th>登录时间</th>
+        <th>登录ip</th>
+        <th>头像</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($rows as $row):?>
+    <tr>
+        <td><?=$row['id']?></td>
+        <td><?=$row['username']?></td>
+        <td><?=$row['email']?></td>
+        <td><?=date("Y-m-d",$row['add_time'])?></td>
+        <td><?=date("Y-m-d",$row['last_login_time'])?></td>
+        <td><?=long2ip($row['last_login_ip'])?></td>
+        <td><img src="<?=$row['logo']?>" alt=""></td>
+        <td>
+            <a href="">修改</a>
+            <a href="">删除</a>
+        </td>
+    </tr>
+    <?php endforeach;?>
+    <tr>
+        <td colspan="8">
+            <a href="index.php?p=Admin&c=Admin&a=add">添加</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

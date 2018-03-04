@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="admin-sidebar am-offcanvas  am-padding-0" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+        <!-- User -->
+        <div class="user-box am-hide-sm-only">
+            <div class="user-img">
+                <?php @session_start();?>
+                <img src="<?=$_SESSION['user']['photo']?>" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
+            </div>
+            <h5><a href="#"><?=$_SESSION['user']['username']?></a> </h5>
+            <ul class="list-inline">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="text-custom">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End User -->
+        <ul class="am-list admin-sidebar-list">
+            <li><a href="index.php?p=Admin&c=Zeng&a=index"><span class="am-icon-home"></span> 充值规则</a></li>
+            <li><a href="index.php?p=Admin&c=Member&a=index"><span class="am-icon-home"></span> 员工管理表</a></li>
+            <li><a href="index.php?p=Admin&c=Group&a=group"><span class="am-icon-home"></span> 部门表</a></li>
+            <li><a href="index.php?p=Admin&c=Users&a=index"><span class="am-icon-home"></span> 会员表</a></li>
+            <li><a href="index.php?p=Admin&c=Article&a=index"><span class="am-icon-home"></span> 活动表</a></li>
+            <li><a href="index.php?p=Admin&c=Plans&a=index"><span class="am-icon-home"></span> 套餐表</a></li>
+            <li><a href="index.php?p=Admin&c=Codes&a=index"><span class="am-icon-home"></span> 代金卷表</a></li>
+            <li><a href="index.php?p=Admin&c=Order&a=index"><span class="am-icon-home"></span> 预约处理</a></li>
+            <li><a href="index.php?p=Admin&c=History&a=index"><span class="am-icon-home"></span> 消费记录</a></li>
+            <li><a href="index.php?p=Admin&c=List&a=index"><span class="am-icon-home"></span> 排行榜</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

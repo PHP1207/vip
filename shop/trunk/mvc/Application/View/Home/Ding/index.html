@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php require './Application/View/Home/Number/herder.html'?>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"></a>
+        </div>
+		  <ul class="nav navbar-nav navbar-right">
+			  <li><a href="index.php?p=Home&c=Login&a=logout">退出</a></li>
+			  <li><a href="index.php?p=Home&c=Article&a=people">前台首页</a></li>
+			  <li><a href="index.php?p=Home&c=Users&a=index">注册会员</a></li>
+			  <li><a href="index.php?p=Home&c=Inte&a=index">积分表</a></li>
+		  </ul><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Welcome Section +++++ -->
+	<?php require './Application/View/Home/Ding/red.html'?><!-- /ww -->
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+	
+	
+	<!-- +++++ Projects Section +++++ -->
+
+	<div class="content-page">
+		<!-- Start content -->
+		<div class="content">
+			<div class="card-box">
+				<!-- Row start -->
+				<div class="am-g">
+					<div class="am-u-sm-12 am-u-md-6">
+						<div class="am-btn-toolbar">
+
+						</div>
+					</div>
+
+					<form action="index.php?p=Home&c=Inte&a=index" method="post">
+						<table>
+							<tr>
+								<td width="150px"><input type="text" name="name" placeholder="姓名" class="am-form-field"></td>
+								<td>
+								<span class="am-input-group-btn">
+				            <input class="am-btn am-btn-default" type="submit" value="搜索">
+				          </span>
+								</td>
+
+							</tr>
+						</table>
+					</form>
+				</div>
+				<!-- Row end -->
+				<table width="1000px" style="text-align: center">
+					<thead>
+					<tr>
+						<td class="table-check"><input type="checkbox" /></td>
+						<td class="table-id">订单号</td>
+						<td class="table-title">姓名</td>
+						<td class="table-type">电话号码</td>
+						<td class="table-type">地址</td>
+						<td class="table-type">服务时间</td>
+						<td class="table-type">状态</td>
+						<td class="table-type">处理订单</td>
+					</tr>
+					</thead>
+					<tbody>
+					<?php foreach($list as $row):?>
+					<tr>
+						<td><input type="checkbox" /></td>
+						<td><?=$row['id']?></td>
+						<td><?=$row['name']?></td>
+						<td><?=$row['tolphone']?></td>
+						<td><?=$row['url']?></td>
+						<td><?=date('Y-m-d H:i:s',$row['time'])?></td>
+						<td><?=$row['status']==0?'待收货':'完成订单'?></td>
+						<td>
+							<?php if($row['status']==0):?>
+							订单正在发送中
+							<?php else:?>
+							<a href="index.php?p=Home&c=Ding&a=add">确认收货</a>
+							<?php endif;?>
+						</td>
+					</tr>
+					<?php endforeach;?>
+					</tbody>
+				</table>
+				<!-- Row start -->
+				<table id="page-table" cellspacing="0">
+					<tbody>
+					<tr>
+						<td align="right" nowrap="true" style="background-color: rgb(255, 255, 255);">
+							<!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+							<div id="turn-page">
+								总计  <span id="totalRecords"><?=$count?></span>个记录分为 <span id="totalPages"><?=$totalPage?></span>页当前第 <span id="pageCurrent"><?=$page?></span>
+								页，每页 <input type="text" size="3" id="pageSize" value="<?=$pageSize?>" onkeypress="return listTable.changePageSize(event)">
+								<span id="page-link">
+                            <a href="index.php?<?=$url_name?>&page=1">第一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=($page-1)<1?1:($page-1)?>">上一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=($page+1)>$totalPage?$totalPage:($page+1)?>">下一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=$totalPage?>">最末页</a>
+                            <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+                            <option value="1">1</option><option value="2">2</option>          </select>
+                        </span>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<!-- Row end -->
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</div><!-- /container -->
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<?php foreach($con as $v):?>
+				<div class="col-lg-4">
+					<h4>评论人:<?=$v['name']?></h4>
+					<h4>评论内容:<?=$v['content']?></h4>
+					<h4><?=date("Y-m-d H:i:s",$v['time'])?></h4>
+					<h4><a href="index.php?p=Home&c=Ding&a=hui&id=<?=$v['id']?>">回复</a></h4>
+					<?php foreach($v['hui'] as $row):?>
+					<h4>回复人:<?=$row['name']?></h4>
+					<h4>回复内容:<?=$row['cont']?></h4>
+					<h4>回复时间:<?=date("Y-m-d",$row['time'])?></h4>
+					<?php endforeach;?>
+				</div>
+				<!-- /col-lg-4 -->
+				<?php endforeach;?>
+			</div>
+
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Public/Home/Inte/js/bootstrap.min.js"></script>
+  </body>
+</html>

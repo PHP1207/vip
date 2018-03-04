@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wqz19970129
+ * Date: 2018/2/27
+ * Time: 22:39
+ */
+class LoginController extends  Controller
+{
+ public function login(){
+     //接收数据
+     //处理数据
+     //显示页面
+     $this->display('index');
+ }
+ public function login_check(){
+
+ }
+}

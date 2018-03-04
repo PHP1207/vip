@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/2/27 0027
+ * Time: 23:32
+ */
+class MemberModel extends Model
+{
+   //查询员工数据
+    public function getAll(){
+        //写sql
+        $sql="select * from member";
+        //执行
+        $rows=$this->db->fetchAll($sql);
+        //返回
+        return $rows;
+    }
+}

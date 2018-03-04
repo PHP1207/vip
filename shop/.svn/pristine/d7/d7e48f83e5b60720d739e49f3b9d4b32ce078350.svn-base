@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/3/1 0001
+ * Time: 15:24
+ */
+class HistoryController extends PlatformController
+{
+   //显示日志表
+    public function index(){
+        //接收数据
+        $page=$_GET['page']??1;
+        $data=$_REQUEST;
+        $stau=[];
+        if(!empty($data['remainder'])){
+            $stau[]="remainder like '%{$data['remainder']}%'";
+        }
+        unset($_REQUEST['page']);
+        $url_name=http_build_query($_REQUEST);
+        //处理数据
+        $history=new HistoryModel();
+        $rows=$history->getAll($page,$stau);
+        $rows['url_name']=$url_name;
+        extract($rows);
+        //分配数据
+        $this->assign($rows);
+        //显示页面
+        $this->display('index');
+    }
+}

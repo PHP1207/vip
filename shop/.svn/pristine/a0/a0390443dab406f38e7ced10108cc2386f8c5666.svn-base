@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="index.php?p=Admin&c=Goods&a=edit" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>商品名称:</td>
+            <td>
+                <input type="text" name="name" value="<?=$name?>">
+                <input type="hidden" name="id" value="<?=$id?>">
+            </td>
+        </tr>
+        <tr>
+            <td>货号:</td>
+            <td><input type="text" name="sn" value="<?=$sn?>"></td>
+        </tr>
+        <tr>
+            <td>商场价格:</td>
+            <td>
+                <input type="text" name="shop_price" value="<?=$shop_price?>">
+            </td>
+        </tr>
+        <tr>
+            <td>本店价格:</td>
+            <td><input type="text" name="market_price" value="<?=$market_price?>"></td>
+        </tr>
+        <tr>
+            <td>上传图片:</td>
+            <td><input type="file" name="logo" ></td>
+            <td><img src="<?=$thumb_logo?>" alt=""></td>
+        </tr>
+        <tr>
+            <td>库存:</td>
+            <td><input type="text" name="num" value="<?=$num?>"></td>
+        </tr>
+        <tr>
+            <td>商品状态:</td>
+            <td>
+                <input type="checkbox" name="status[]" value="1" <?=($status&1)>0?'checked':''?>>精品
+                <input type="checkbox" name="status[]" value="2" <?=($status&2)>0?'checked':''?>>新品
+                <input type="checkbox" name="status[]" value="4" <?=($status&4)>0?'checked':''?>>热销品
+            </td>
+        </tr>
+        <tr>
+            <td>是否上架:</td>
+            <td>
+                <input type="radio" name="is_on_sale" value="1" <?=$is_on_sale==1?'checked':''?>>上架
+                <input type="radio" name="is_on_sale" value="0" <?=$is_on_sale==0?'checked':''?>>下架
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="添加">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

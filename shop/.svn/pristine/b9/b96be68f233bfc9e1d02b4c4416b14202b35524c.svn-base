@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/3/2 0002
+ * Time: 13:55
+ */
+class NumberModel extends Model
+{
+    //查询积分商城
+    public function getAll(){
+        //写sql
+        $sql="select * from `number`";
+        //执行
+        $rows=$this->db->fetchAll($sql);
+        //返回值
+        return $rows;
+    }
+    //添加商品
+    public function add_save($data){
+        if(empty($data['name'])){
+            $this->error='商品名称不能为空!';
+            return false;
+        }
+        if(empty($data['num'])){
+            $this->error='所需积分不能为空!';
+            return false;
+        }
+        if(empty($data['sn'])){
+            $this->error='库存不能为空!';
+            return false;
+        }
+        if (empty($data['logo'])){
+            $this->error='商品图片不能为空!';
+            return false;
+        }
+        //写sql
+        $sql="insert into number set `name`='{$data['name']}',num='{$data['num']}',sn='{$data['sn']}',logo='{$data['logo']}'";
+        //执行
+        return $this->db->execute($sql);
+    }
+    //删除商品
+    public function delete($id){
+        //写sql
+        $sql="delete from `number` where id={$id}";
+        //执行
+        return $this->db->execute($sql);
+    }
+}

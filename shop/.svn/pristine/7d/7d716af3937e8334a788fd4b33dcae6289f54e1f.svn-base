@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/2/28 0028
+ * Time: 13:53
+ */
+class LoginController extends Controller
+{
+   //显示登录页面
+    public function Login(){
+        //接收数据
+        //处理数据
+        //显示页面
+        $this->display('login');
+    }
+}

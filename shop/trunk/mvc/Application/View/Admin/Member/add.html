@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>后台模板</title>
+		<link rel="stylesheet" href="./Public/Admin/Member/css/amazeui.css" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./Public/Admin/Member/css/core.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/menu.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/index.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/admin.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/page/typography.css" />
+		<link rel="stylesheet" href="./Public/Admin/Member/css/page/form.css" />
+	</head>
+	<body>
+		<!-- Begin page -->
+		<?php require './Application/View/Admin/Member/herder.html'?>
+		<!-- end page -->
+		
+		
+		<div class="admin">
+			<!--<div class="am-g">-->
+		<!-- ========== Left Sidebar Start ========== -->
+		<!--<div class="left side-menu am-hide-sm-only am-u-md-1 am-padding-0">
+			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 548px;">
+				<div class="sidebar-inner slimscrollleft" style="overflow: hidden; width: auto; height: 548px;">-->
+                  <!-- sidebar start -->
+			<?php require './Application/View/Admin/Member/red.html'?>
+				  <!-- sidebar end -->
+    
+				<!--</div>
+			</div>
+		</div>-->
+		<!-- ========== Left Sidebar end ========== -->
+		
+		
+		
+	<!--	<div class="am-g">-->
+		<!-- ============================================================== -->
+		<!-- Start right Content here -->
+		<div class="content-page">
+			<!-- Start content -->
+			<div class="content">
+				<div class="am-g">
+					<!-- Row start -->
+						<div class="am-u-sm-12">
+							<div class="card-box">
+								<ul class="am-nav am-fr">
+								  <li class="am-dropdown" data-am-dropdown>
+								    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+								       <span class="am-icon-caret-down"></span>
+								    </a>
+								    <ul class="am-dropdown-content">
+								      <li>1231234</li>
+								      <li>1231234</li>
+								      <li>1231234</li>
+								      <li>1231234</li>
+								    </ul>
+								  </li>
+								</ul>
+								
+								<form action="index.php?p=Admin&c=Member&a=add" class="am-form" data-am-validator method="post" enctype="multipart/form-data">
+								  <fieldset>
+								    <legend>JS 表单验证</legend>
+								    <div class="am-form-group">
+								      <label for="doc-vld-name-2">用户名：</label>
+								      <input type="text" name="username" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>
+								    </div>
+								
+								    <div class="am-form-group">
+								      <label for="doc-vld-email-2">密码：</label>
+								      <input type="password" name="password" id="doc-vld-email-2" placeholder="输入密码" required/>
+								    </div>
+								
+								    <div class="am-form-group">
+								      <label for="doc-vld-url-2">姓名：</label>
+								      <input type="text" name="realname" id="doc-vld-url-2" placeholder="输入姓名" required/>
+								    </div>
+
+								    <div class="am-form-group">
+								      <label class="am-form-label">电话：</label>
+										<input type="text" name="telephone"  placeholder="输入电话号码" required/>
+								    </div>
+								
+								    <div class="am-form-group">
+								      <label>性别： </label>
+								      <label class="am-radio-inline">
+								        <input type="radio"  name="sex" value="1" required> 男
+								      </label>
+								      <label class="am-radio-inline">
+								        <input type="radio" name="sex" value="2"> 女
+								      </label>
+								    </div>
+								
+								    <div class="am-form-group">
+								      <label for="doc-select-1">所属部门</label>
+								      <select name="group_id" id="doc-select-1" required>
+										  <?php foreach($rows as $row):?>
+								        <option value="<?=$row['group_id']?>"><?=$row['name']?></option>
+										  <?php endforeach;?>
+								      </select>
+								      <span class="am-form-caret"></span>
+								    </div>
+								
+								    <div class="am-form-group">
+								      <label>是否为管理员</label>
+										<input type="radio" name="is_admin" value="1">是
+										<input type="radio" name="is_admin" value="0">否
+								    </div>
+								
+								    <div class="am-form-group">
+								      <label>头像：</label>
+										<input type="file" name="photo">
+								    </div>
+								
+								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
+								  </fieldset>
+								</form>
+								
+								
+							</div>
+						</div>
+					<!-- Row end -->
+				</div>
+			
+			
+			
+			
+			</div>
+		</div>
+		<!-- end right Content here -->
+		<!--</div>-->
+		</div>
+		</div>
+		
+		<!-- navbar -->
+		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
+		
+		<script type="text/javascript" src="./Public/Admin/Member/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="./Public/Admin/Member/js/amazeui.min.js"></script>
+		<script type="text/javascript" src="./Public/Admin/Member/js/app.js" ></script>
+		<script type="text/javascript" src="./Public/Admin/Member/js/blockUI.js" ></script>
+	</body>
+	
+</html>

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/2/28 0028
+ * Time: 23:02
+ */
+class CodesModel extends Model
+{
+  //查询所有数据
+    public function getAll(){
+        //写sql语句
+        $sql="select * from codes";
+        //执行
+        $rows=$this->db->fetchAll($sql);
+        return $rows;
+    }
+}

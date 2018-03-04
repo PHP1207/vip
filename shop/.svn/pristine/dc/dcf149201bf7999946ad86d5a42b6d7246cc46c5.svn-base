@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="index.php?p=Admin&c=Login&a=chexd" method="post">
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td>
+                <input type="text" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td>记住我:</td>
+            <td><input type="checkbox" name="rember"></td>
+        </tr>
+        <tr>
+            <td>验证码:</td>
+            <td><input type="text" name="cpatcha"></td>
+        </tr>
+        <tr>
+            <td><img src="index.php?p=Admin&c=Captcha&a=captcha" alt="" title="点我改变" onclick="this.src='index.php?p=Admin&c=Captcha&a=captcha&'+Math.random()"><br/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="登录"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

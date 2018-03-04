@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="ww">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <?php @session_start();?>
+                <img src="<?=$_SESSION['users']['thumb']?>" style="border-radius: 100px" alt="Stanley">
+                <h1>积分商城</h1>
+                <h1>积分为:<?=$number??0?></h1>
+
+            </div><!-- /col-lg-8 -->
+        </div><!-- /row -->
+    </div> <!-- /container -->
+</div>
+</body>
+</html>

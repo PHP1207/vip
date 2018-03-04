@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="index.php?p=Admin&c=Goods&a=index" method="post">
+    商品名称:<input type="text" name="name">
+    商品状态:<select name="status">
+                  <option value="">全部</option>
+                  <option value="1">精品</option>
+                  <option value="2">新品</option>
+                  <option value="4">热销</option>
+             </select>
+    <input type="submit" value="搜索">
+</form>
+<table border="1px" cellspacing="0" cellpadding="0" style="text-align: center">
+    <tr>
+        <th>ID</th>
+        <th>商品名称</th>
+        <th>货号</th>
+        <th>商场价格</th>
+        <th>本店价格</th>
+        <th>商品图片</th>
+        <th>商品缩略图</th>
+        <th>商品数量</th>
+        <th>新品</th>
+        <th>精品</th>
+        <th>热销品</th>
+        <th>是否上架</th>
+        <th>添加时间</th>
+        <th>修改时间</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($list as $row):?>
+    <tr>
+        <td><?=$row['id']?></td>
+        <td><?=$row['name']?></td>
+        <td><?=$row['sn']?></td>
+        <td><?=$row['shop_price']?></td>
+        <td><?=$row['market_price']?></td>
+        <td><img src="<?=$row['logo']?>" alt=""></td>
+        <td><img src="<?=$row['thumb_logo']?>" alt=""></td>
+        <td><?=$row['num']?></td>
+        <td><?=($row['status']&1)>0?'√':'x'?></td>
+        <td><?=($row['status']&2)>0?'√':'x'?></td>
+        <td><?=($row['status']&4)>0?'√':'x'?></td>
+        <td><?=$row['is_on_sale']==0?'否':'是'?></td>
+        <td><?=date('Y-m-d',$row['add_time'])?></td>
+        <td><?=date('Y-m-d',$row['update_time'])?></td>
+        <td>
+            <a href="index.php?p=Admin&c=Goods&a=edit&id=<?=$row['id']?>">修改</a>
+            <a href="index.php?p=Admin&c=Goods&a=delete&id=<?=$row['id']?>">删除</a>
+        </td>
+    </tr>
+    <?php endforeach;?>
+    <tr>
+        <td colspan="15">
+            <a href="index.php?p=Admin&c=Goods&a=add">添加</a>
+        </td>
+    </tr>
+</table>
+<table id="page-table" cellspacing="0">
+    <tbody>
+    <tr>
+        <td align="right" nowrap="true" style="background-color: rgb(255, 255, 255);">
+            <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+            <div id="turn-page">
+                总计  <span id="totalRecords"><?=$count?></span>个记录分为 <span id="totalPages"><?=$totalPage?></span>页当前第 <span id="pageCurrent"><?=$page?></span>
+                页，每页 <input type="text" size="3" id="pageSize" value="<?=$pageSize?>" onkeypress="return listTable.changePageSize(event)">
+                <span id="page-link">
+                            <a href="index.php?<?=$url_name?>&page=1">第一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=($page-1)<1?1:($page-1)?>">上一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=($page+1)>$totalPage?$totalPage:($page+1)?>">下一页</a>
+                            <a href="index.php?<?=$url_name?>&page=<?=$totalPage?>">最末页</a>
+                            <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+                            <option value="1">1</option><option value="2">2</option>          </select>
+                        </span>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

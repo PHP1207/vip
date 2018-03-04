@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wqz19970129
+ * Date: 2018/2/28
+ * Time: 20:43
+ */
+class OrderController extends Controller
+{
+   public function index(){
+       @session_start();
+       $username=$_SESSION['users']['username'];
+       //var_dump($username);die;
+       $this->assign('username',$username);
+       $thumb=$_SESSION['users']['thumb'];
+       //var_dump($username);die;
+       $this->assign('thumb',$thumb);
+//根据id来查询他的名字
+       $id=$_GET['user_id'];
+       $article_id=$_GET['article_id'];
+       //var_dump($article_id);die;
+       $this->assign('article_id',$article_id);
+       $user=new UsersModel();
+       $row=$user->getOne($id);
+       $this->assign($row);
+       $display=new ArticleModel();
+       $rows=$display->getAll1();
+       //显示页面
+       $this->assign('rows',$rows);
+       //显示页面
+       $this->display('order');
+   }
+   public function add(){
+       //接受数据
+       $data=$_POST;
+       $id=$data['id'];
+       //var_dump($data);die;
+       //处理数据
+       $add=new OrderModel();
+       $add->add($data);
+       //显示页面
+       $this->red("index.php?p=Home&c=Article&a=content2&article_id={$id}");
+   }
+   public function delete(){
+        $id=$_GET['user_id'];
+        $user=new UsersModel();
+        $realname=$user->getcolumn($id);
+        $order=new OrderModel();
+        $order->delete($realname);
+       $this->red("index.php?p=Home&c=Article&a=people");
+   }
+}

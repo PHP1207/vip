@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wqz19970129
+ * Date: 2018/2/28
+ * Time: 21:35
+ */
+class OrderModel extends Model
+{
+ public function add($data){
+     $sql="insert into `order`
+set 
+realname='{$data['realname']}',
+phone='{$data['telephone']}',
+barber='{$data['realname']}',
+content='{$data['content']}',
+data='{$data['data']}'
+";
+$this->db->execute($sql);
+ }
+ public function delete($realname){
+     $sql="delete from `order` where realname='{$realname}' ";
+     $this->db->execute($sql);
+ }
+}

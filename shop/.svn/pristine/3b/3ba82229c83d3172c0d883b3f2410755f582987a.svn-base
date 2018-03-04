@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/2/28 0028
+ * Time: 23:01
+ */
+class CodesController extends PlatformController
+{
+    //显示代金卷页面
+    public function index(){
+        //接收数据
+        //处理数据
+        $codes=new CodesModel();
+        $rows=$codes->getAll();
+        //分配数据
+        $this->assign('rows',$rows);
+        //显示页面
+        $this->display('index');
+    }
+}
