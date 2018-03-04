@@ -10,14 +10,14 @@ class OrderModel extends Model
 {
  public function add($data){
 //    var_dump($data);die;
-     $time=time();
+     //$time=time();
      $sql="insert into `order`
 set 
 realname='{$data['realname']}',
 phone='{$data['telephone']}',
 barber='{$data['barber']}',
 content='{$data['content']}',
-`data`='{$time}'
+`data`='{$data['data']}'
 ";
      //var_dump($sql);die;
 $this->db->execute($sql);
